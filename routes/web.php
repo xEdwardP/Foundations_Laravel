@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AspiranteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+     return redirect()->route('aspirantes.index');
 });
+
+Route::resource('aspirantes', AspiranteController::class);
