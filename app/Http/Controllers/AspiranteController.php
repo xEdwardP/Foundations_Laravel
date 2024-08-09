@@ -28,7 +28,19 @@ class AspiranteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd("Hola Mundo");
+        $aspirante = new Aspirante();
+        $aspirante->dni = $request->dni;
+        $aspirante->nombre = $request->nombre;
+        $aspirante->departamento = $request->depto;
+        $aspirante->municipio = $request->munic;
+        $aspirante->comunidad = $request->comunidad;
+        $aspirante->barrio = $request->barrio;
+        $aspirante->ingresomensual = $request->ingresomensual;
+
+        $aspirante->save();
+
+        return redirect()->route('aspirantes.index');
     }
 
     /**
