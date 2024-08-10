@@ -31,7 +31,17 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Modelo
+        $estudiante = new Estudiante();
+        // Valores
+        $estudiante->cuenta = $request->cuenta;
+        $estudiante->nombre = $request->nombre;
+        $estudiante->apellidos = $request->apellidos;
+        $estudiante->direccion = $request->direccion;
+        $estudiante->carrera_id = $request->carrera;
+
+        $estudiante->save();
+        return redirect()->route('estudiantes.index');
     }
 
     /**
@@ -45,17 +55,26 @@ class EstudianteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Estudiante $estudiante)
+    public function edit($cuenta)
     {
-        //
+        $carreras = Carrera::all();
+        $estudiante = Estudiante::findOrFail($cuenta);
+        return view('estudiantes.edit', compact('estudiante', 'carreras'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Estudiante $estudiante)
+    public function update(Request $request, $cuenta)
     {
-        //
+        $estudiante = Estudiante::findOrFail($cuenta);
+        $estudiante->nombre = $request->nombre;
+        $estudiante->apellidos = $request->apellidos;
+        $estudiante->direccion = $request->direccion;
+        $estudiante->carrera_id = $request->carrera;
+
+        $estudiante->save();
+        return redirect()->route('estudiantes.index');
     }
 
     /**

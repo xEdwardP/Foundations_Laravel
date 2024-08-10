@@ -9,9 +9,17 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 bg-primary">
+        <div class="row bg-primary">
+            <div class="col-12 col-md-6">
                 @yield('title')
+            </div>
+            <div class="col-12 col-md-6">
+                <nav class="navbar navbar-dark navbar-expand-md text-light">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="{{route('aspirantes.index')}}" class="nav-link active">Aspirantes</a></li>
+                        <li class="nav-item"><a href="{{route('estudiantes.index')}}" class="nav-link active">Estudiantes</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
 

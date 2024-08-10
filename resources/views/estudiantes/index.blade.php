@@ -6,8 +6,8 @@
 
 @section('content')
     <div class="row">
-        <div class="col-12 text-end">
-            <a href="{{ route('estudiantes.create') }}" class="btn btn-primary btn-sm">Nuevo Estudiante</a>
+        <div class="col-12 text-end my-2">
+            <a href="{{ route('estudiantes.create') }}" class="btn btn-primary btn-sm me-1">Nuevo Estudiante</a>
         </div>
     </div>
 
@@ -15,17 +15,39 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row px-1">
                         <div class="col-12">
-                            @foreach ($estudiantes as $estudiante)
-                                <ul>
-                                    <li>{{ $estudiante->cuenta }}</li>
-                                    <li>{{ $estudiante->nombre . '' . $estudiante->apellidos }}</li>
-                                    <li>{{ $estudiante->direccion }}</li>
-                                    <li>{{ $estudiante->carrera->carrera }}</li>
-                                    <li>{{ $estudiante->carrera->uv }}</li>
-                                </ul>
-                            @endforeach
+
+                            <table class="table table-sm table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th><small><strong>CUENTA</strong></small></th>
+                                        <th><small><strong>NOMBRE DEL ESTUDIANTE</strong></small></th>
+                                        <th><small><strong>DIRECCION</strong></small></th>
+                                        <th><small><strong>CARRERA</strong></small></th>
+                                        <th><small><strong>ACCIONES</strong></small></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach($estudiantes as $estudiante)
+                                        <tr>
+                                            <td><small>{{$estudiante->cuenta}}</small></td>
+                                            <td><small>{{$estudiante->nombre . ' ' . $estudiante->apellidos}}</small></td>
+                                            <td><small>{{$estudiante->direccion}}</small></td>
+                                            <td><small>{{$estudiante->carrera->carrera}}</small></td>
+                                            <td>
+                                                <a href="{{route('estudiantes.edit', $estudiante->cuenta)}}" class="btn btn-outline-info btn-sm">
+                                                    <span>Editar</span>
+                                                </a>
+                                                <a href="{{route('estudiantes.show', $estudiante->cuenta)}}" class="btn btn-outline-danger btn-sm">
+                                                    <span>Eliminar</span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
