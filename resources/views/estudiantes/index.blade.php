@@ -15,7 +15,11 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="row px-1">
+                    <span class="bg-info rounded px-2 py-1 text-light">
+                        <strong>Listado de Estudiantes</strong>
+                    </span>
+
+                    <div class="row px-1 mt-2">
                         <div class="col-12">
 
                             <table class="table table-sm table-bordered">

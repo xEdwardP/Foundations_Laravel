@@ -18,6 +18,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="{{route('aspirantes.index')}}" class="nav-link active">Aspirantes</a></li>
                         <li class="nav-item"><a href="{{route('estudiantes.index')}}" class="nav-link active">Estudiantes</a></li>
+                        <li class="nav-item"><a href="{{route('mi-empresa.index')}}" class="nav-link active">Mi empresa</a></li>
                     </ul>
                 </nav>
             </div>
