@@ -37,11 +37,14 @@
                                             <td><small>{{$estudiante->direccion}}</small></td>
                                             <td><small>{{$estudiante->carrera->carrera}}</small></td>
                                             <td>
-                                                <a href="{{route('estudiantes.edit', $estudiante->cuenta)}}" class="btn btn-outline-info btn-sm">
+                                                <a href="{{route('estudiantes.edit', $estudiante->cuenta)}}" class="btn btn-outline-warning btn-sm">
                                                     <span>Editar</span>
                                                 </a>
                                                 <a href="{{route('estudiantes.show', $estudiante->cuenta)}}" class="btn btn-outline-danger btn-sm">
                                                     <span>Eliminar</span>
+                                                </a>
+                                                <a href="{{route('asistencias.index', $estudiante->cuenta)}}" class="btn btn-outline-info btn-sm">
+                                                    <span>Asistencias</span>
                                                 </a>
                                             </td>
                                         </tr>

@@ -18,4 +18,9 @@ class Estudiante extends Model
     public function carrera(){
         return $this->belongsTo(Carrera::class);
     }
+
+    // Recuperar asistencias
+    public function asistencias(){
+        return $this->hasMany(Asistencia::class, "cuenta_est");
+    }
 }
